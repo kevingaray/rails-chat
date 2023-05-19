@@ -15,6 +15,10 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # install semantic
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
+# user resource
+gem 'bcrypt', '~> 3.1.7'
+# to see sheets in console : Hirb.enable
+gem 'hirb'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
