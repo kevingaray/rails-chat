@@ -16,6 +16,15 @@ window.scroll_bottom = function() {
   }
 }
 
+window.submit_message = function() {
+  $('#text_body').on('keydown', function(e) {
+    if (e.key === 'Enter') {
+      $('button').click();
+      e.target.value = "";
+    };
+  });
+};
+
 $(document).on('turbolinks:load', function() {
   $('.ui.dropdown').dropdown();
   submit_message();
