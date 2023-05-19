@@ -1,0 +1,32 @@
+<h4 class="ui center aligned medium icon header">
+  <i class="circular orange coffee icon"></i>
+  Sign up
+</h4>
+
+<% if @user.errors.any? %>
+  <div class="ui error message transition">
+    <i class="close icon"></i>
+    <div class="header">
+      <h4>The following errors prevented the user from being saved</h4>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="ui placeholder segment">
+  <%= form_with(model: @user, html: {class: "ui form", role: "form"}, local: true) do |f| %>
+    <div class="field">
+      <%= f.label :username %>
+      <%= f.text_field :username, placeholder: "Enter a username" %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Choose a password" %>
+    </div>
+      <%= f.submit "Sign up" , class: "ui orange submit button"  %>
+  <% end %>
+</div>
