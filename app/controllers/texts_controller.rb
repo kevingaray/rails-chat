@@ -4,7 +4,7 @@ class TextsController < ApplicationController
   def create
     text = current_user.texts.build(text_params)
     if text.save
-      redirect_to root_path
+      ActionCable.server.broadcast "chatroom_channel", {mod_message: message_render(text)}
     end
   end
 
@@ -14,4 +14,8 @@ class TextsController < ApplicationController
     params.require(:text).permit(:body)
   end
 
+  def message_render(text)
+    render(partial: 'text', locals: {text: text})
+  end
+  
 end

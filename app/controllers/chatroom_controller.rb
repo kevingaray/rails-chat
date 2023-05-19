@@ -3,7 +3,7 @@ class ChatroomController < ApplicationController
 
     def index
       @text = Text.new
-      @texts = Text.all  
+      @texts = Text.custom_display  
     end
      
 end
