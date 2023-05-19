@@ -17,6 +17,4 @@ test:
 
 production:
   <<: *default
-  database: rails_chat_production
-  # username: rails_chat
   url: <%= ENV['DATABASE_URL'] %>
