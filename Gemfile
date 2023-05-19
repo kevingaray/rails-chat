@@ -35,4 +35,8 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production do
+  gem 'redis', '~> 4.0'
+end
+
 gem 'tzinfo-data'
